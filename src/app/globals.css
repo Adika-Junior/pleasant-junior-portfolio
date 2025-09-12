@@ -1,0 +1,887 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-poppins);
+  --font-display: var(--font-playfair);
+  --font-serif: var(--font-source-serif);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* Luxurious Typography System */
+.font-display {
+  font-family: var(--font-playfair), serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.font-hero-name {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+}
+
+/* Document Styling */
+.document-container {
+  max-width: 8.5in;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 11in; /* Ensure minimum A4 height */
+  position: relative;
+}
+
+.document-header {
+  background: #f8f9fa;
+  border-bottom: 2px solid #e9ecef;
+  padding: 2rem;
+  text-align: center;
+}
+
+.document-content {
+  padding: 2rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.document-section {
+  margin-bottom: 2rem;
+}
+
+.document-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.document-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.document-section p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.document-list {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.document-list li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.document-list li::before {
+  content: "•";
+  color: #3498db;
+  font-weight: bold;
+  position: absolute;
+  left: -1rem;
+}
+
+.document-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.document-grid-item {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 4px solid #3498db;
+}
+
+.document-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.document-skill {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.document-experience {
+  border-left: 3px solid #3498db;
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.document-experience h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.25rem;
+}
+
+.document-experience .date {
+  color: #7f8c8d;
+  font-size: 0.875rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.document-experience .company {
+  color: #34495e;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.document-contact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.document-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.document-contact-item svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #3498db;
+}
+
+/* Dark mode document styling */
+.dark .document-container {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+.dark .document-header {
+  background: #2d2d2d;
+  border-bottom-color: #444;
+}
+
+.dark .document-section h2 {
+  color: #e0e0e0;
+  border-bottom-color: #3498db;
+}
+
+.dark .document-section h3 {
+  color: #d0d0d0;
+}
+
+.dark .document-grid-item {
+  background: #2d2d2d;
+  border-left-color: #3498db;
+}
+
+.dark .document-skill {
+  background: #1e3a5f;
+  color: #64b5f6;
+}
+
+.dark .document-experience h4 {
+  color: #e0e0e0;
+}
+
+.dark .document-experience .company {
+  color: #d0d0d0;
+}
+
+.dark .document-contact {
+  background: #2d2d2d;
+}
+
+/* Print Mode Styles */
+.print-mode {
+  background: white !important;
+  color: black !important;
+}
+
+.print-mode .document-container {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+  background: white !important;
+  color: black !important;
+}
+
+.print-content {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Print Preview Modal Styles */
+.print-preview-content {
+  background: white;
+  color: black;
+  padding: 2rem;
+  min-height: 100%;
+}
+
+.print-preview-content .document-container {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+  background: white !important;
+  color: black !important;
+}
+
+.print-preview-content .document-header {
+  background: white !important;
+  border-bottom: 2px solid #2c3e50 !important;
+  color: black !important;
+}
+
+.print-preview-content .document-section h2 {
+  color: #2c3e50 !important;
+  border-bottom: 1px solid #2c3e50 !important;
+}
+
+.print-preview-content .document-section h3 {
+  color: #34495e !important;
+}
+
+.print-preview-content .document-grid-item {
+  background: #f8f9fa !important;
+  border-left: 3px solid #2c3e50 !important;
+  color: black !important;
+}
+
+.print-preview-content .document-skill {
+  background: #e8f4fd !important;
+  color: #1976d2 !important;
+  border: 1px solid #bbdefb;
+}
+
+.print-preview-content .document-experience h4 {
+  color: #2c3e50 !important;
+}
+
+.print-preview-content .document-experience .company {
+  color: #34495e !important;
+}
+
+.print-preview-content .document-contact {
+  background: white !important;
+  color: black !important;
+}
+
+/* Print Styles for CV/Resume Pages */
+@media print {
+  /* Hide specific UI elements only */
+  header, nav, .glass-button, button, .sidebar, .hanging-sidebar, 
+  .action-buttons, .preview-actions, .role-selection, .tab-navigation {
+    display: none !important;
+  }
+  
+  /* Hide page headers - be more specific */
+  .bg-gradient-to-r {
+    display: none !important;
+  }
+  
+  /* Hide the first div (page header) but keep document container */
+  .min-h-screen > div:first-child:not(.document-container) {
+    display: none !important;
+  }
+  
+  /* Hide print preview elements */
+  .print-mode .bg-gradient-to-r {
+    display: none !important;
+  }
+  
+  /* Ensure document container is visible and properly positioned */
+  .document-container {
+    display: block !important;
+    position: static !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: white !important;
+    color: black !important;
+  }
+  
+  /* Ensure all content inside document container is visible */
+  .document-container * {
+    display: block !important;
+    visibility: visible !important;
+  }
+  
+  .document-container .document-header,
+  .document-container .document-content {
+    display: block !important;
+  }
+  
+  /* Reset page margins and layout - Hide browser headers/footers */
+  @page {
+    margin: 0.5in;
+    size: 8.5in 11in;
+    /* Hide browser headers and footers */
+    @top-left { content: ""; }
+    @top-center { content: ""; }
+    @top-right { content: ""; }
+    @bottom-left { content: ""; }
+    @bottom-center { content: ""; }
+    @bottom-right { content: ""; }
+  }
+  
+  /* Ensure proper page breaks */
+  .document-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .document-experience {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  /* Better spacing for print */
+  .document-container {
+    min-height: 10.5in; /* Account for page margins */
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+  
+  .document-container {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+    background: white !important;
+    color: black !important;
+    width: 100%;
+  }
+  
+  .document-header {
+    background: white !important;
+    border-bottom: 2px solid #2c3e50 !important;
+    color: black !important;
+    padding: 0 0 1rem 0;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+  
+  .document-header h1 {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #2c3e50 !important;
+    margin: 0 0 0.25rem 0;
+  }
+  
+  .document-header p {
+    font-size: 12pt;
+    color: #34495e !important;
+    margin: 0 0 0.75rem 0;
+  }
+  
+  .document-contact {
+    background: white !important;
+    color: black !important;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .document-contact-item {
+    font-size: 10pt;
+    color: #2c3e50 !important;
+  }
+  
+  .document-contact-item svg {
+    display: none;
+  }
+  
+  .document-content {
+    color: black !important;
+    padding: 0;
+    line-height: 1.4;
+  }
+  
+  .document-section {
+    margin-bottom: 1.25rem;
+    page-break-inside: avoid;
+  }
+  
+  .document-section h2 {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #2c3e50 !important;
+    border-bottom: 1px solid #2c3e50 !important;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.75rem;
+    margin-top: 1.25rem;
+  }
+  
+  .document-section h3 {
+    font-size: 12pt;
+    font-weight: 600;
+    color: #34495e !important;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .document-section p {
+    margin-bottom: 0.5rem;
+    text-align: left;
+    font-size: 11pt;
+  }
+  
+  .document-list {
+    margin-left: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .document-list li {
+    margin-bottom: 0.25rem;
+    font-size: 11pt;
+  }
+  
+  .document-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .document-grid-item {
+    padding: 0.75rem;
+    background: #f8f9fa !important;
+    border-left: 3px solid #2c3e50 !important;
+    color: black !important;
+    page-break-inside: avoid;
+  }
+  
+  .document-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .document-skill {
+    background: #e8f4fd !important;
+    color: #1976d2 !important;
+    padding: 0.125rem 0.5rem;
+    border-radius: 12px;
+    font-size: 9pt;
+    font-weight: 500;
+    border: 1px solid #bbdefb;
+  }
+  
+  .document-experience {
+    border-left: 2px solid #2c3e50;
+    padding-left: 0.75rem;
+    margin-bottom: 1rem;
+    page-break-inside: avoid;
+  }
+  
+  .document-experience h4 {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #2c3e50 !important;
+    margin-bottom: 0.125rem;
+  }
+  
+  .document-experience .date {
+    color: #7f8c8d !important;
+    font-size: 10pt;
+    font-style: italic;
+    margin-bottom: 0.25rem;
+  }
+  
+  .document-experience .company {
+    color: #34495e !important;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    font-size: 10pt;
+  }
+  
+  /* Page breaks */
+  .document-section:not(:first-child) {
+    page-break-before: auto;
+  }
+  
+  .document-experience:not(:first-child) {
+    page-break-before: auto;
+  }
+  
+  /* Hide any remaining UI elements */
+  .glass-button, button, .action-buttons, .preview-actions {
+    display: none !important;
+  }
+  
+  /* Additional print optimizations */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  /* Ensure clean page breaks */
+  .document-section:not(:first-child) {
+    page-break-before: auto;
+  }
+  
+  .document-experience:not(:first-child) {
+    page-break-before: auto;
+  }
+  
+  /* Hide browser UI elements */
+  @page {
+    margin: 0.5in;
+    size: 8.5in 11in;
+  }
+}
+
+/* Print-specific body class */
+body.printing {
+  background: white !important;
+  color: black !important;
+}
+
+body.printing * {
+  background: white !important;
+  color: black !important;
+}
+
+body.printing .document-container {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Print mode - ensure document container is visible */
+@media print {
+  body.printing .document-container {
+    display: block !important;
+    position: static !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    background: white !important;
+    color: black !important;
+  }
+  
+  /* Force visibility of all document content */
+  body.printing .document-container * {
+    display: block !important;
+    visibility: visible !important;
+  }
+  
+  body.printing .document-container .document-header,
+  body.printing .document-container .document-content {
+    display: block !important;
+  }
+}
+
+.font-heading {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.font-body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.font-serif {
+  font-family: var(--font-source-serif), serif;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* Premium Text Styles */
+.text-luxury {
+  font-family: var(--font-playfair), serif;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.text-premium {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.text-elegant {
+  font-family: var(--font-source-serif), serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.65;
+}
+
+/* Glassmorphism Design System - Harder Contrast */
+.glass {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.5);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.2);
+}
+
+.glass-button {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: #1f2937;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glass-button:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: #111827;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.glass-button:hover::before {
+  opacity: 1;
+}
+
+.glass-button:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Dark mode glass button - Enhanced */
+.dark .glass-button {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f9fafb;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.dark .glass-button::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+}
+
+.dark .glass-button:hover {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.dark .glass-button:active {
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced Text Contrast for Glass Elements */
+.glass-text {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.glass-text-dark {
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Improved Sidebar Visibility */
+.sidebar-enhanced {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.4);
+}
+
+.sidebar-enhanced-dark {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* Modern Gradient Backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-bg-dark {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Glow Effect */
+.glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.7);
+  transform: translateY(-2px);
+}
+
+/* PDF generation specific styles to avoid color parsing issues */
+.pdf-generation {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.pdf-generation * {
+  background-image: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+.pdf-generation .bg-gradient-to-r,
+.pdf-generation .bg-gradient-to-br,
+.pdf-generation .bg-gradient-to-t {
+  background: #2563eb !important;
+}
+
+.pdf-generation .text-white {
+  color: #ffffff !important;
+}
+
+.pdf-generation .text-gray-900 {
+  color: #111827 !important;
+}
+
+.pdf-generation .text-gray-700 {
+  color: #374151 !important;
+}
+
+.pdf-generation .text-gray-600 {
+  color: #4b5563 !important;
+}
+
+.pdf-generation .bg-white {
+  background-color: #ffffff !important;
+}
+
+.pdf-generation .bg-gray-50 {
+  background-color: #f9fafb !important;
+}
+
+.pdf-generation .bg-gray-100 {
+  background-color: #f3f4f6 !important;
+}
+
+.pdf-generation .border-blue-600 {
+  border-color: #2563eb !important;
+}
+
+.pdf-generation .border-gray-300 {
+  border-color: #d1d5db !important;
+}
